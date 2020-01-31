@@ -1,8 +1,7 @@
 # depslib dependency file v1.0
-1580175678 source:c:\users\radio\desktop\c++\calculator\main.cpp
+1580455200 source:c:\users\radio\desktop\c++\calculator\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
-	<SFML/Window/Mouse.hpp>
 
 1556136528 c:\users\radio\desktop\dev\sfml\include\\sfml\graphics.hpp
 	<SFML/Window.hpp>

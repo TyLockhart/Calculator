@@ -15,11 +15,13 @@ int main()
     vector<Texture> Cursor;
     vector<Font> Game_Font;
     vector<Text> Game_Text;
+    vector<float> Vars;
+    bool New=true;
 
     //Bools
     bool Game=true;
     bool Game_Once=true;
-    bool Game_Clicked,Game_Mouse;;
+    bool Game_Clicked,Game_Mouse;
 
     //Textures
     Cursor.push_back(Texture());
@@ -36,8 +38,7 @@ int main()
     window.setMouseCursorGrabbed(false); // Dont let mouse cursor leave window
     window.setMouseCursorVisible(false);
 
-
-    while(window.isOpen()&& !Keyboard::isKeyPressed(Keyboard::Escape))
+    while(window.isOpen()&&!Keyboard::isKeyPressed(Keyboard::Escape))
     {
         Game_Mouse=false;
         Event event;
@@ -54,7 +55,12 @@ int main()
         {
             if(Game_Once==true)
             {
-                Game_Clicked=true;
+                Game_Clicked=false;
+
+//                New.resize(9);
+//                for(int i=0;i<=9;i++) New[i]=true;
+
+                Vars.push_back(0);
 
                 Game_BG.push_back(RectangleShape(Vector2f(1000,800)));
                 Game_BG.back().setFillColor(Color::White);
@@ -126,9 +132,133 @@ int main()
             }
             window.draw(Game_BG[0]); //White background
 
-            if(Game_Text[0].getLocalBounds().intersects(Game_BG[2].getGlobalBounds())){//working here
-                cout<<"on"<<endl;
+            if(Game_Text[0].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[0].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=0)Vars.back()=0;
+                    if(New!=true)New=true;
+                }
             }
+            else Game_Text[0].setFillColor(Color::White);
+
+            if(Game_Text[1].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[1].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=1)Vars.back()=1;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[1].setFillColor(Color::White);
+
+            if(Game_Text[2].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[2].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=2)Vars.back()=2;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[2].setFillColor(Color::White);
+
+            if(Game_Text[3].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[3].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=3)Vars.back()=3;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[3].setFillColor(Color::White);
+
+            if(Game_Text[4].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[4].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=4)Vars.back()=4;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[4].setFillColor(Color::White);
+
+            if(Game_Text[5].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[5].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=5)Vars.back()=5;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[5].setFillColor(Color::White);
+
+            if(Game_Text[6].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[6].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=6)Vars.back()=6;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[6].setFillColor(Color::White);
+
+            if(Game_Text[7].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[7].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=7)Vars.back()=7;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[7].setFillColor(Color::White);
+
+            if(Game_Text[8].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                if((static_cast<int>(Game_Text[0].getFillColor().g))==255){
+                        Game_Text[8].setFillColor(Color::Red);//so .r outputs a char? change it to an int
+                cout<<(static_cast<int>(Game_Text[0].getFillColor().g))<<endl;
+                }
+                if(Game_Mouse==true){
+                    if(Vars.back()!=8)Vars.back()=8;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[8].setFillColor(Color::White);
+
+            if(Game_Text[9].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[9].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                    if(Vars.back()!=9)Vars.back()=9;
+                    if(New!=true)New=true;
+                }
+            }
+            else Game_Text[9].setFillColor(Color::White);
+
+
+
+
+            for(int i=10;i<=16;i++){
+            if(Game_Text[i].getGlobalBounds().contains(Vector2f(Game_BG[1].getPosition().x,Game_BG[1].getPosition().y))){
+                Game_Text[i].setFillColor(Color::Red);
+                if(Game_Mouse==true){
+                if(New==true) Vars.push_back(0);
+                }
+            }
+            else Game_Text[i].setFillColor(Color::White);
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
